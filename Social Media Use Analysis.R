@@ -4,7 +4,10 @@ library(reshape2)
 #read in data
 data <- read_csv("social media use B.csv")
 
-data_melt <- melt(data3)
+data_melt <- melt(data)
+
+Month <- factor(data_melt$Month, +
+                  as.ordered("Aug", "Sept", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "June", "July"))
 
 #bargraph with variables in one bar
 ggplot(data_melt, aes(x = Month, y = value, fill = variable)) +
